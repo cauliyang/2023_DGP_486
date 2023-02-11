@@ -23,7 +23,9 @@ def clean_count(count: Path):
 
     new_columns = []
     for column in df.columns:
-        new_columns.append(column.replace("1Bam/", "").replace("l0", "l")[:-4])
+        new_columns.append(
+            column.replace("1Bam/", "").replace("l0", "l").replace("D0", "D")[:-4]
+        )
     df.columns = new_columns
 
     df.to_csv(new_path, sep="\t")
