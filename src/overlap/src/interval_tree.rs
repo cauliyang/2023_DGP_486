@@ -643,7 +643,7 @@ fn sorted_querent_query_firsts<'a, T, I>(
 // True iff the two intervals overlap.
 #[inline(always)]
 fn overlaps(first_a: i32, last_a: i32, first_b: i32, last_b: i32) -> bool {
-    return first_a <= last_b && last_a >= first_b;
+    first_a <= last_b && last_a >= first_b
 }
 
 // Used by `traverse` to keep record tree metadata.

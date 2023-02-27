@@ -36,21 +36,6 @@ type IntervalTree = COITree<String, usize>;
 type Node = IntervalNode<String, usize>;
 type ChrIntervalTree = DashMap<String, IntervalTree>;
 
-#[derive(Parser, Debug)]
-struct Args {
-    /// Path of ATAC-Seq peak file
-    #[arg(short, long)]
-    atac: PathBuf,
-
-    /// Path of boundary file
-    #[arg(short, long)]
-    boundary: PathBuf,
-
-    /// Path of loop file
-    #[arg(short, long)]
-    loops: PathBuf,
-}
-
 fn query_loop(path: &PathBuf, trees: &ChrIntervalTree) {
     let file = std::fs::File::open(path).unwrap();
     let content = std::io::BufReader::new(file);
@@ -165,8 +150,32 @@ fn build_tree(file: &PathBuf) -> ChrIntervalTree {
     }))
 }
 
+#[derive(Parser, Debug)]
+struct Args {
+    /// Path of ATAC-Seq peak file
+    #[arg(short, long)]
+    atac: PathBuf,
+
+    /// Path of boundary file
+    #[arg(short, long)]
+    boundary: PathBuf,
+
+    /// Path of loop file
+    #[arg(short, long)]
+    loops: PathBuf,
+
+    /// Number of threads
+    #[arg(short, long, default_value = "2")]
+    threads: usize,
+}
 fn main() {
     let args = Args::parse();
+
+    rayon::ThreadPoolBuilder::new()
+        .num_threads(args.threads)
+        .build_global()
+        .unwrap();
+
     let trees = build_tree(&args.atac);
     query_loop(&args.loops, &trees);
     query_boundary(&args.boundary, &trees);
