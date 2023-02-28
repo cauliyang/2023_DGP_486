@@ -11,13 +11,13 @@
 
 ### Part 1:
 
-- [ ] Use one paragraph to describe the biological system in your project and explain the goal of identifying epigenomic differences.
-- [ ] Process the ATAC-seq data (fastQ files) and report mapping statistics.
-- [ ] Identify tissue-specific or condition-specific ATAC-Seq peaks (submit two bed files, one for each condition).
-- [ ] Draw heatmap for the tissue-specific ATAC-Seq peaks.
-- [ ] Perform motif search in tissue/condition-specific open chromatin regions and report the top five motifs.
-- [ ] Use one paragraph to explain whether the TFs identified in the tissue-specific regions are relevant to the tissue/condition.
-- [ ] You just need to pick one TF from each condition and the claims needs to be support by current literature.
+- [x] Use one paragraph to describe the biological system in your project and explain the goal of identifying epigenomic differences.
+- [x] Process the ATAC-seq data (fastQ files) and report mapping statistics.
+- [x] Identify tissue-specific or condition-specific ATAC-Seq peaks (submit two bed files, one for each condition).
+- [x] Draw heatmap for the tissue-specific ATAC-Seq peaks.
+- [x] Perform motif search in tissue/condition-specific open chromatin regions and report the top five motifs.
+- [x] Use one paragraph to explain whether the TFs identified in the tissue-specific regions are relevant to the tissue/condition.
+- [x] You just need to pick one TF from each condition and the claims needs to be support by current literature.
 
 Note:
 
@@ -31,10 +31,10 @@ We have mapped the scRNA-seq in PBMC and the output is in /projects/e31900/resou
 
 Your assignment is to visualize the cloupe file and annotate each cluster.
 
-- [ ] Describe how you annotate the cluster and the literature that support the annotation.
-- [ ] Describe why scRNA is important for the paper you chose.
-- [ ] Have the authors used the technique to discover something that won’t be possible with bulk assay?
-- [ ] What are the validation experiments in the paper to support the finding by scRNA-Seq?
+- [x] Describe how you annotate the cluster and the literature that support the annotation.
+- [x] Describe why scRNA is important for the paper you chose.
+- [x] Have the authors used the technique to discover something that won’t be possible with bulk assay?
+- [x] What are the validation experiments in the paper to support the finding by scRNA-Seq?
 
 3D genome organization. In folder: /projects/e31900/resource/hi-c, we have the following files:
 
